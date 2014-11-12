@@ -1,5 +1,5 @@
 Template.problemsList.helpers({
 	problems: function(){
-		return Problems.find();
+		return Problems.find({}, {sort: {submitted: -1}});
 	}
 });
