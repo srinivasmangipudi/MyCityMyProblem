@@ -2,6 +2,10 @@
 	<div class="problem">
 		<div class="problem-content">
 			<h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
+			<p>
+				submitted by {{author}}
+				{{#if ownProblem}}<a href="{{pathFor 'problemEdit'}}">Edit</a>{{/if}}
+			</p>
 		</div>
 		<a href="{{pathFor 'problemPage'}}" class="discuss btn btn-default">Discuss</a>
 	</div>
