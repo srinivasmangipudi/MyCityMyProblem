@@ -7,7 +7,7 @@ Template.problemEdit.events({
 		var problemProperties = {
 			url: $(e.target).find('[name=url]').val(),
 			title: $(e.target).find('[name=title]').val()
-		}
+		};
 
 		Problems.update(currentProblemId, {$set: problemProperties}, function(error) {
 			if(error) {
