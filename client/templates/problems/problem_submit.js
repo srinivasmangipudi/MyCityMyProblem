@@ -23,8 +23,7 @@ Template.problemSubmit.events({
 			if(result.problemExists)
 			{
 				throwError("This link has already been posted! Please discuss it.");
-			}
-				
+			}				
 
 			if(error)
 			{
