@@ -22,13 +22,15 @@ Template.problemSubmit.events({
 
 			if(result.problemExists)
 			{
-				throwError("This link has already been posted! Please discuss it.");
+				//throwError("This link has already been posted! Please discuss it.");
+				Errors.throw("This link has already been posted! Please discuss it.");
 			}				
 
 			if(error)
 			{
 				//display the error to the user
-				throwError(error.reason);
+				//throwError(error.reason);
+				Errors.throw(error.reason);
 
 				if(error.error === 302)
 					Router.go('problemPage', {_id: error.details});
