@@ -4,7 +4,7 @@
 	"homepage": "https://github.com/srinivasmangipudi/meteor-errors",
 	"author": "srinivas",
 	"version": "1.0",
-	"git": "https://github.com/srinivasmangipudi/meteor-errors",
+	"git": "https://github.com/srinivasmangipudi/meteor-errors.git",
 	"packages": {
 
 	}
