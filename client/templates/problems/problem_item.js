@@ -7,5 +7,9 @@ Template.problemItem.helpers({
 		var a = document.createElement('a');
 		a.href = this.url;
 		return a.hostname;
+	},
+
+	commentsCount: function() {
+		return Comments.find({problemId: this._id}).count();
 	}
 });

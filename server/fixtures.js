@@ -1,7 +1,40 @@
-if (Problems.find().count() === 0) {
-	Problems.insert({
+if (Problems.find().count() === 0)
+{
+	var now = new Date().getTime();
+
+	//create two users
+	var sriId = Meteor.users.insert({
+		profile: {name: "Srinivas Mangipudi"}
+	});
+	var sri = Meteor.users.findOne(sriId);
+
+	var umaId = Meteor.users.insert({
+		profile: {name: "Uma Mangipudi"}
+	});
+	var uma = Meteor.users.findOne(umaId);
+
+	var p1Id = Problems.insert({
 	title: 'Potholed roads',
-	url: 'http://timesofindia.indiatimes.com/city/chennai/Potholed-roads-pose-a-deadly-threat-to-seniors/articleshow/44966477.cms'
+	userId: sri._id,
+	author: sri.profile.name,
+	url: 'http://timesofindia.indiatimes.com/city/chennai/Potholed-roads-pose-a-deadly-threat-to-seniors/articleshow/44966477.cms',
+	submitted: now - 7 * 3600 * 1000
+	});
+
+	Comments.insert({
+		problemId: p1Id,
+		userId: uma._id,
+		author: uma.profile.name,
+		submitted: now - 5 * 3600 * 1000,
+		body: 'Interesting project Sacha, can I get involved?'
+	});
+
+	Comments.insert({
+		problemId: p1Id,
+		userId: sri._id,
+		author: sri.profile.name,
+		submitted: now - 3 * 3600 * 1000,
+		body: 'You sure can Tom!'
 	});
 
 	Problems.insert({
