@@ -6,3 +6,7 @@ Meteor.publish('comments', function(problemId) {
 	check(problemId, String);
 	return Comments.find({problemId: problemId});
 });
+
+Meteor.publish('notifications', function() {
+	return Notifications.find()
+});
