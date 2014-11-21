@@ -18,7 +18,8 @@ if (Problems.find().count() === 0)
 	userId: sri._id,
 	author: sri.profile.name,
 	url: 'http://timesofindia.indiatimes.com/city/chennai/Potholed-roads-pose-a-deadly-threat-to-seniors/articleshow/44966477.cms',
-	submitted: now - 7 * 3600 * 1000
+	submitted: now - 7 * 3600 * 1000,
+	commentsCount: 2
 	});
 
 	Comments.insert({
@@ -39,11 +40,19 @@ if (Problems.find().count() === 0)
 
 	Problems.insert({
 	title: 'Garbage in my neighbourhood not being collected',
-	url: 'http://www.wsbtv.com/news/news/local/trash-piles-local-apartment-complex-despite-tenant/nh2Mr/'
+	url: 'http://www.wsbtv.com/news/news/local/trash-piles-local-apartment-complex-despite-tenant/nh2Mr/',
+	userId: uma._id,
+	author: uma.profile.name,
+	submitted: now - 7 * 3600 * 1000,
+	commentsCount: 0
 	});
 
 	Problems.insert({
 	title: 'Traffic congestion increasing pollution',
-	url: 'http://www.coventrytelegraph.net/news/coventry-news/coventrys-bus-lanes-could-scrapped-8055383'
+	url: 'http://www.coventrytelegraph.net/news/coventry-news/coventrys-bus-lanes-could-scrapped-8055383',
+	userId: sri._id,
+	author: sri.profile.name,
+	submitted: now - 7 * 3600 * 1000,
+	commentsCount: 0	
 	});
 }
