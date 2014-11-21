@@ -8,5 +8,5 @@ Meteor.publish('comments', function(problemId) {
 });
 
 Meteor.publish('notifications', function() {
-	return Notifications.find()
+	return Notifications.find({userId: this.userId});
 });
