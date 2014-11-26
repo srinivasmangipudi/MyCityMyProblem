@@ -55,4 +55,16 @@ if (Problems.find().count() === 0)
 	submitted: now - 7 * 3600 * 1000,
 	commentsCount: 0	
 	});
+
+	for(var i=0; i<10; i++)
+	{
+		Problems.insert({
+			title: "Test Problem #" + i,
+			author: sri.profile.name,
+			userId: sri._id,
+			url: 'http://google.com/?q=test-' + i,
+			submitted: now - i * 3600 * 1000,
+			commentsCount: 0
+		});
+	}
 }
