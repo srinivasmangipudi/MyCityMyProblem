@@ -1,5 +1,9 @@
-Meteor.publish('problems', function() {
-	return Problems.find();
+Meteor.publish('problems', function(options) {
+	check(options, {
+		sort: Object,
+		limit: Number
+	});
+	return Problems.find({}, options);
 });
 
 Meteor.publish('comments', function(problemId) {
