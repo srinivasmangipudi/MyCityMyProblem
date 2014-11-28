@@ -13,6 +13,8 @@ Template.problemItem.helpers({
 		var userId = Meteor.userId();
 		if(userId && !_.include(this.upvoters, userId)) {
 			return 'upvotable';
+		} else if (!userId) {
+			return 'disabled';
 		} else {
 			return 'btn-success disabled';
 		}
