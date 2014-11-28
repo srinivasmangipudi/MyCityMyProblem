@@ -9,3 +9,10 @@ Template.problemItem.helpers({
 		return a.hostname;
 	}
 });
+
+Template.problemItem.events({
+	'click .upvote': function(e) {
+		e.preventDefault();
+		Meteor.call('upvote', this._id);
+	}
+});
