@@ -19,7 +19,9 @@ if (Problems.find().count() === 0)
 	author: sri.profile.name,
 	url: 'http://timesofindia.indiatimes.com/city/chennai/Potholed-roads-pose-a-deadly-threat-to-seniors/articleshow/44966477.cms',
 	submitted: now - 7 * 3600 * 1000,
-	commentsCount: 2
+	commentsCount: 2,
+	upvoters: [],
+	votes: 0
 	});
 
 	Comments.insert({
@@ -44,7 +46,9 @@ if (Problems.find().count() === 0)
 	userId: uma._id,
 	author: uma.profile.name,
 	submitted: now - 7 * 3600 * 1000,
-	commentsCount: 0
+	commentsCount: 0,
+	upvoters: [],
+	votes: 0
 	});
 
 	Problems.insert({
@@ -53,7 +57,9 @@ if (Problems.find().count() === 0)
 	userId: sri._id,
 	author: sri.profile.name,
 	submitted: now - 7 * 3600 * 1000,
-	commentsCount: 0	
+	commentsCount: 0,
+	upvoters: [],
+	votes: 0
 	});
 
 	for(var i=0; i<10; i++)
@@ -64,7 +70,9 @@ if (Problems.find().count() === 0)
 			userId: sri._id,
 			url: 'http://google.com/?q=test-' + i,
 			submitted: now - i * 3600 * 1000,
-			commentsCount: 0
+			commentsCount: 0,
+			upvoters: [],
+			votes: 0
 		});
 	}
 }

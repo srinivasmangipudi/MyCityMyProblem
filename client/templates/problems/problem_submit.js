@@ -1,3 +1,16 @@
+Template.problemSubmit.created = function() {
+	Session.set('problemSubmitErrors', {});
+}
+
+Template.problemSubmit.helpers({
+	errorMessage: function(field) {
+		return Session.get('problemSubmitErrors')[field];
+	},
+	errorClass: function(field) {
+		return !!Session.get('problemSubmitErrors')[field] ? 'has-error' : '';
+	}
+});
+
 Template.problemSubmit.events({
 	'submit form': function(e) {
 		e.preventDefault();
@@ -8,36 +21,21 @@ Template.problemSubmit.events({
 			message: $(e.target).find('[name=message]').val()
 		};
 
+		var errors = validateProblem(problem);
+		if(errors.title || errors.url || errors.message)
+			return Session.set('problemSubmitErrors', errors);
+
 		Meteor.call('problemInsert', problem, function(error, result)
 		{
-			/*//display error to user and abort
 			if(error)
-				return alert(error.reason);
-
-			//if problem.url exists then show the result and route it 
-			if(result.problemExists)
-				alert('This link has already been posted');
-
-			Router.go('problemPage', {_id:result._id});*/
+				return throwError(error.reason);
 
 			if(result.problemExists)
 			{
-				//throwError("This link has already been posted! Please discuss it.");
-				Errors.throw("This link has already been posted! Please discuss it.");
-			}				
-
-			if(error)
-			{
-				//display the error to the user
-				//throwError(error.reason);
-				Errors.throw(error.reason);
-
-				if(error.error === 302)
-					Router.go('problemPage', {_id: error.details});
-			} else
-			{
-				Router.go('problemPage', {_id: result._id});
+				throwError("This link has already been posted! Please discuss it.");
 			}
+
+			Router.go('problemPage', {_id: result._id});
 		});
 	}
 });
