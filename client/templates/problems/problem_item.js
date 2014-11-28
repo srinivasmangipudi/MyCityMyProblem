@@ -7,11 +7,20 @@ Template.problemItem.helpers({
 		var a = document.createElement('a');
 		a.href = this.url;
 		return a.hostname;
+	},
+
+	upvotedClass: function() {
+		var userId = Meteor.userId();
+		if(userId && !_.include(this.upvoters, userId)) {
+			return 'upvotable';
+		} else {
+			return 'btn-success disabled';
+		}
 	}
 });
 
 Template.problemItem.events({
-	'click .upvote': function(e) {
+	'click .upvotable': function(e) {
 		e.preventDefault();
 		Meteor.call('upvote', this._id);
 	}
