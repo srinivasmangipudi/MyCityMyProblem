@@ -6,7 +6,7 @@
 		<div class="problem-content">
 			<h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
 			<p>
-				{{votes}} Votes,
+				{{pluralize votes "Vote"}},
 				submitted by <b>{{author}}</b>,
 				<a href="{{pathFor 'problemPage'}}">{{commentsCount}} comments</a>
 			</p>
