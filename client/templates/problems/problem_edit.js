@@ -25,7 +25,7 @@ Template.problemEdit.events({
 		if(confirm("Delete this problem?")) {
 			var currentProblemId = this._id;
 			Problems.remove(currentProblemId);
-			Router.go('problemsList');
+			Router.go('home');
 		}
 	}
 });
