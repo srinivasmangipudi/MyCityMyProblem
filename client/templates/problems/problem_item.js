@@ -28,7 +28,11 @@ Template.problemItem.helpers({
 		var newPosition = problem._rank * PROBLEM_HEIGHT;
 		var attributes = {};
 
-		if(! _.isUndefined(problem.position))
+		if(_.isUndefined(problem.position))
+		{
+			attributes.class = "problem invisible";
+		}
+		else
 		{
 			var delta = problem.position - newPosition;
 			attributes.style = "top: " + delta + "px";
